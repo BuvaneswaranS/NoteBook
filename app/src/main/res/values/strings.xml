@@ -7,4 +7,7 @@
     <string name="display_folder_fragment">Display the list of notes inside the Folder fragment</string>
     <string name="note_title_text">Title</string>
     <string name="description_hinit">Start Writing!!!</string>
+    <string name="add_notes_Title">Add Note</string>
+    <string name="folder_title">Folder</string>
+    <string name="home_fragment_title">NoteBook</string>
 </resources>
