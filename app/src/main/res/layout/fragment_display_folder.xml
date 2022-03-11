@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
-
+        <variable
+            name="displayFolderViewModel"
+            type="com.example.task_2_notes.displayfolder.DisplayFolderViewModal" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

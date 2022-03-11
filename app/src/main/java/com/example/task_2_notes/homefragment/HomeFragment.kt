@@ -55,7 +55,7 @@ class HomeFragment : Fragment() {
             Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_displayFolderFragment)
         }
 
-        binding.textView2.text = viewModal.word
+        binding.folderTitle.text = viewModal.word
         return binding.root
     }
 
