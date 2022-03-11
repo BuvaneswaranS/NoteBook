@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Notes</string>
+    <string name="main_activity_label_name">Notes</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="home_fragment">Home fragment</string>
+    <string name="display_note_fragment">Display the DATA inside the Note fragment</string>
+    <string name="display_folder_fragment">Display the list of notes inside the Folder fragment</string>
+    <string name="note_title_text">Title</string>
+    <string name="description_hinit">Start Writing!!!</string>
+</resources>
