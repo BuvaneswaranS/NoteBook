@@ -18,11 +18,15 @@ interface NotesDao {
 
 //    Get all the notes
     @Query("SELECT * from notes_table")
-    fun getAllNotes(): NotesData
+    fun getAllNotes(): List<NotesData>
 
-//   Getting the Notes Data for a separate folder
+//    Get a single Note
+    @Query("SELECT * from notes_table")
+    fun getNote(): NotesData
+
+    //   Getting the Notes Data for a separate folder
     @Query("SELECT * from notes_table WHERE Folder_Name = :tableName")
-    fun getNotesForSeparateTable(tableName: String)
+    fun getNotesForSeparateTable(tableName: String): List<NotesData>
 
 //  Deleting a single Note from the Table
     @Query("DELETE FROM  notes_table WHERE uniqueKey = :key")

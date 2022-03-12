@@ -5,4 +5,9 @@ import androidx.lifecycle.AndroidViewModel
 
 class DisplayFolderViewModal(application: Application): AndroidViewModel(application) {
 
+    init {
+
+    }
+
+
 }

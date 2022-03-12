@@ -10,4 +10,5 @@
     <string name="add_notes_Title">Add Note</string>
     <string name="folder_title">Folder</string>
     <string name="home_fragment_title">NoteBook</string>
+    <string name="name_folder">folder_name</string>
 </resources>

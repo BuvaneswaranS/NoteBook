@@ -1,34 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#919BA3">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
-        android:layout_width="189dp"
-        android:layout_height="139dp"
+        android:layout_width="238dp"
+        android:layout_height="113dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:elevation="60dp">
+        android:background="#D212F3"
+        android:elevation="60dp"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:background="#03A9F4"
+            android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:text="India"
-                android:textAppearance="?attr/textAppearanceHeadline5" />
+            <LinearLayout
+                android:layout_width="174dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="113dp"
-                android:text="India"
-                android:textAppearance="?attr/textAppearanceBody1" />
+                <TextView
+                    android:id="@+id/title_note"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:paddingLeft="10dp"
+                    android:text="Title"
+                    android:textColor="#CADC18"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/title_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="74dp"
+                    android:paddingLeft="15dp"
+                    android:text="Description"
+                    android:textColor="#ED9108"
+                    android:textSize="17dp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/icon_delete"
+                android:layout_width="43dp"
+                android:layout_height="41dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="25dp"
+                app:srcCompat="@drawable/ic_delete_icon" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 

@@ -12,15 +12,15 @@ data class NotesData(
 
 
     @ColumnInfo(name = "Folder_Name")
-    var folderName: String = "default_folder",
+    var folderName: String,
 
 
     @ColumnInfo(name = "Title")
-    var title: String = "default_title",
+    var title: String,
 
 
     @ColumnInfo(name = "Description")
-    var description: String = "default_description",
+    var description: String,
 
 
     @ColumnInfo(name = "Created_Time")

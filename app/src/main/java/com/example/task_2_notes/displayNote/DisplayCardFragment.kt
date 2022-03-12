@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.task_2_notes.R
 import com.example.task_2_notes.databinding.FragmentDisplayCardBinding
+import com.example.task_2_notes.notesdatabase.NotesData
 import com.example.task_2_notes.notesdatabase.NotesDatabase
 
 
@@ -20,6 +21,8 @@ class DisplayCardFragment : Fragment() {
 
     private lateinit var binding: FragmentDisplayCardBinding
     private lateinit var viewModel: DisplayNoteViewModel
+    private lateinit var data: NotesData
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -29,18 +32,18 @@ class DisplayCardFragment : Fragment() {
 
         val app = requireNotNull(this.activity).application
 
-        val database = NotesDatabase.getDatabaseInstance(app).notesDao
 
         viewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(app)).get(DisplayNoteViewModel::class.java)
 
         binding.displayViewModel = viewModel
 
-        viewModel.noteTitle = binding.titleText.text.toString()
-        viewModel.noteDescription = binding.descriptionText.text.toString()
-
+        val data_title: String = binding.titleText.text.toString()
+        val data_description: String = binding.descriptionText.text.toString()
 
         binding.saveBtn.setOnClickListener { view ->
-            viewModel.addNote()
+            data.title = data_title
+            data.description = data_description
+            viewModel.addNote(data)
             Navigation.findNavController(view).navigate(R.id.action_displayCardFragment_to_displayFolderFragment)
         }
 

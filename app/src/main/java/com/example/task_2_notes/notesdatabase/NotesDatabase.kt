@@ -20,9 +20,9 @@ abstract class NotesDatabase: RoomDatabase() {
             synchronized(this){
                 var instance = DATABASE_INSTANCE
                 if(instance == null){
-                    instance = Room.databaseBuilder(context.applicationContext,NotesDatabase::class.java,"notes_database").fallbackToDestructiveMigration().build()
-                    DATABASE_INSTANCE = instance
+                    instance = Room.databaseBuilder(context.applicationContext,NotesDatabase::class.java,"notes_database").build()
                 }
+                DATABASE_INSTANCE = instance
                 return instance
             }
         }
