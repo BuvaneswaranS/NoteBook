@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/displayCardFragment"
-        android:name="com.example.task_2_notes.displayNote.DisplayCardFragment"
+        android:name="com.example.task_2_notes.displayNote.DisplayNoteFragment"
         android:label="@string/add_notes_Title"
         tools:layout="@layout/fragment_display_card" >
         <action

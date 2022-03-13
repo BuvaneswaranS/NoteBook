@@ -1,14 +1,19 @@
 package com.example.task_2_notes.homefragment
 
+import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.inflate
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.EditText
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil.inflate
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.task_2_notes.HomePage
@@ -52,11 +57,34 @@ class HomeFragment : Fragment() {
         }
 
         binding.addFolder.setOnClickListener{view ->
+            val data: String = showGetFolderNameDialogBox()
+
+            Log.i("TestingApp","${data}")
+
             Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_displayFolderFragment)
         }
 
         binding.folderTitle.text = viewModal.word
         return binding.root
+    }
+
+     fun showGetFolderNameDialogBox(): String{
+        val builder = AlertDialog.Builder(this.context, com.google.android.material.R.style.AlertDialog_AppCompat)
+        val dialogLayout = layoutInflater.inflate(R.layout.edit_text_layout,null)
+        val editText = dialogLayout.findViewById<EditText>(R.id.get_new_folder_input)
+
+        var folder_name: String = ""
+
+        with(builder){
+            setTitle("Enter New Folder Text")
+            setPositiveButton("OK"){dialog, which ->
+                folder_name =  editText.text.toString()
+            }
+            setNegativeButton("CANCEL"){dialog, which ->
+
+            }
+        }
+        return folder_name
     }
 
     private fun startAnimation(){

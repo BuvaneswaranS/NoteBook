@@ -2,7 +2,8 @@ package com.example.task_2_notes.notesdatabase
 
 import android.util.Log
 
-class NoteRespository(private val notesDao: NotesDao) {
+
+class NoteRespository(val notesDao: NotesDao) {
 
     suspend fun insert(notesData: NotesData){
         Log.i("TestingApp", "Inserted Came")

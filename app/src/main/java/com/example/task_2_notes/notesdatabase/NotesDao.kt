@@ -1,15 +1,12 @@
 package com.example.task_2_notes.notesdatabase
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 
 @Dao
 interface NotesDao {
 
 //  Inserting a New Note into the Database
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertNotesData(data: NotesData)
 
 //  Updating the Existing Note
@@ -17,7 +14,7 @@ interface NotesDao {
     fun updateNotesData(data: NotesData)
 
 //    Get all the notes
-    @Query("SELECT * from notes_table")
+    @Query("SELECT * from notes_table ORDER BY uniqueKey ASC")
     fun getAllNotes(): List<NotesData>
 
 //    Get a single Note

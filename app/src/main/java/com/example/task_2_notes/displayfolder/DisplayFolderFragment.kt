@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.task_2_notes.R
 import com.example.task_2_notes.databinding.FragmentDisplayFolderBinding
 
@@ -16,6 +18,10 @@ class DisplayFolderFragment : Fragment() {
 
     private lateinit var binding: FragmentDisplayFolderBinding
     private lateinit var viewModal: DisplayFolderViewModal
+
+    private var layoutManager: RecyclerView.LayoutManager? = null
+    private  var adapter: RecyclerView.Adapter<DisplayFolderAdapter.ViewHolder>? = null
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_display_folder, container, false)
@@ -26,7 +32,17 @@ class DisplayFolderFragment : Fragment() {
 
         viewModal = ViewModelProvider(this).get(DisplayFolderViewModal::class.java)
 
-        binding.displayFolderViewModel = viewModal
+//        binding.displayFolderViewModel = viewModal
+
+        layoutManager = LinearLayoutManager(this.context)
+
+        val folder_name: String = "Jeff"
+
+        binding.recyclerView.layoutManager = layoutManager
+
+        adapter = DisplayFolderAdapter(folder_name)
+
+        binding.recyclerView.adapter = adapter
 
 
         return binding.root

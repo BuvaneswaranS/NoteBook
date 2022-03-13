@@ -7,10 +7,6 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "notes_table") // Creating a Table in the Database
 data class NotesData(
 
-    @PrimaryKey(autoGenerate = true)
-    var uniqueKey: Long = 0L,
-
-
     @ColumnInfo(name = "Folder_Name")
     var folderName: String,
 
@@ -29,4 +25,9 @@ data class NotesData(
 
     @ColumnInfo(name = "Modified_Time")
     var modifiedTime: Long = System.currentTimeMillis()
-)
+){
+
+    @PrimaryKey(autoGenerate = true)
+    var uniqueKey: Int? = null
+
+}
