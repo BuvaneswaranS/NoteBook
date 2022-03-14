@@ -36,13 +36,23 @@ class HomeFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
-
+//
 //        binding.card.setOnClickListener{view ->
 //            Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_displayCardFragment)
 //        }
 
+        val folder_name: String = "Default_folder"
+
+        binding.folderTitle.text = folder_name
         binding.folder.setOnClickListener{view ->
-            Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_displayFolderFragment)
+
+            Navigation.findNavController(view).navigate(HomeFragmentDirections.actionHomeFragmentToDisplayFolderFragment(folder_name))
+        }
+
+        val folder1: String = "Jeff"
+        binding.folderTitle1.text = folder1
+        binding.folder1.setOnClickListener { view ->
+            Navigation.findNavController(view).navigate(HomeFragmentDirections.actionHomeFragmentToDisplayFolderFragment(folder1))
         }
 
         viewModal = ViewModelProvider(this).get(homeViewModal::class.java)
@@ -53,39 +63,19 @@ class HomeFragment : Fragment() {
         }
 
         binding.addNoteBtn.setOnClickListener{view ->
-            Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_displayCardFragment)
+            Navigation.findNavController(view).navigate(HomeFragmentDirections.actionHomeFragmentToDisplayCardFragment("Default_folder","writeType"))
         }
 
         binding.addFolder.setOnClickListener{view ->
-            val data: String = showGetFolderNameDialogBox()
 
-            Log.i("TestingApp","${data}")
-
-            Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_displayFolderFragment)
+            Navigation.findNavController(view).navigate(HomeFragmentDirections.actionHomeFragmentToCreateFolderFragment())
         }
 
-        binding.folderTitle.text = viewModal.word
+//        binding.folderTitle.text = viewModal.word
         return binding.root
     }
 
-     fun showGetFolderNameDialogBox(): String{
-        val builder = AlertDialog.Builder(this.context, com.google.android.material.R.style.AlertDialog_AppCompat)
-        val dialogLayout = layoutInflater.inflate(R.layout.edit_text_layout,null)
-        val editText = dialogLayout.findViewById<EditText>(R.id.get_new_folder_input)
 
-        var folder_name: String = ""
-
-        with(builder){
-            setTitle("Enter New Folder Text")
-            setPositiveButton("OK"){dialog, which ->
-                folder_name =  editText.text.toString()
-            }
-            setNegativeButton("CANCEL"){dialog, which ->
-
-            }
-        }
-        return folder_name
-    }
 
     private fun startAnimation(){
         setVisibility(clicked)

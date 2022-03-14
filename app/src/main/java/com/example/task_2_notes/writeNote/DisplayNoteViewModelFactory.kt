@@ -1,4 +1,4 @@
-package com.example.task_2_notes.displayNote
+package com.example.task_2_notes.writeNote
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -6,6 +6,7 @@ import com.example.task_2_notes.notesdatabase.NoteRespository
 import java.lang.IllegalArgumentException
 
 class DisplayNoteViewModelFactory(private val respository: NoteRespository): ViewModelProvider.Factory {
+
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if(modelClass.isAssignableFrom(DisplayNoteViewModel::class.java)){
             @Suppress("UNCHECKED_CAST")

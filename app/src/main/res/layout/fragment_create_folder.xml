@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".createfolder.CreateFolderFragment"/>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/main_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".createfolder.CreateFolderFragment">
+
+        <EditText
+            android:id="@+id/get_folder_name_input"
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="15dp"
+            android:ems="10"
+            android:hint="@string/new_folder_name"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/create_folder_button"
+            android:layout_width="188dp"
+            android:layout_height="69dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/create_folder_button_text" />
+    </LinearLayout>
+</layout>

@@ -1,7 +1,9 @@
 package com.example.task_2_notes
 
+import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.EditText
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -14,8 +16,6 @@ class HomePage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.page_home)
-
-
 
         val navController = this.findNavController(R.id.NavHost)
         NavigationUI.setupActionBarWithNavController(this,navController)

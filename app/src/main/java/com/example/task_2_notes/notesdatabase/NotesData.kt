@@ -28,6 +28,6 @@ data class NotesData(
 ){
 
     @PrimaryKey(autoGenerate = true)
-    var uniqueKey: Int? = null
+    var uniqueKey: Int = 0
 
 }

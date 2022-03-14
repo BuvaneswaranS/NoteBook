@@ -1,5 +1,6 @@
 package com.example.task_2_notes.notesdatabase
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
@@ -15,7 +16,7 @@ interface NotesDao {
 
 //    Get all the notes
     @Query("SELECT * from notes_table ORDER BY uniqueKey ASC")
-    fun getAllNotes(): List<NotesData>
+    fun getAllNotes(): LiveData<List<NotesData>>
 
 //    Get a single Note
     @Query("SELECT * from notes_table")
@@ -23,11 +24,11 @@ interface NotesDao {
 
     //   Getting the Notes Data for a separate folder
     @Query("SELECT * from notes_table WHERE Folder_Name = :tableName")
-    fun getNotesForSeparateTable(tableName: String): List<NotesData>
+    fun getNotesForSeparateTable(tableName: String): LiveData<List<NotesData>>
 
 //  Deleting a single Note from the Table
-    @Query("DELETE FROM  notes_table WHERE uniqueKey = :key")
-    fun deleteNote(key: Long)
+    @Delete()
+    fun deleteNote(note: NotesData)
 
 //  Deleting all the Notes in the Folder
     @Query("DELETE  FROM  notes_table WHERE Folder_Name = :tableName")
@@ -36,6 +37,7 @@ interface NotesDao {
 //   Delete all the notes
     @Query("DELETE  FROM  notes_table")
     fun deleteAll()
+
 
 
 }
